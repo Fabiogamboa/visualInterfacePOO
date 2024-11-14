@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Registro</title>
+    <script src="funcionesEstables.js" defer></script> <!-- Vincula el archivo de JS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedorPrincipal">
+        <form id="formulario">
+            <div>
+                <input type="text" placeholder="Ingrese su nombre" id="nombre" required>
+                <div id="nombre_mensaje" class="mensaje-error"></div>
+            </div>
+            <div>
+                <input type="email" placeholder="Ingrese su correo" id="correo" required>
+                <div id="correo_mensaje" class="mensaje-error"></div>
+            </div>
+            <div>
+                <input type="password" placeholder="Ingrese su contraseña" id="contraseña" required>
+                <div id="contra_mensaje" class="mensaje-error"></div>
+            </div>
+            <button type="submit" id="boton">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
