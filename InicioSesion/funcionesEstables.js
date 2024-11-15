@@ -1,8 +1,3 @@
-const {verificarUsuario} =  require('./registroUsuario/datosUsuario');
-
-
-
-
 const input_nombre = document.getElementById("nombre");
 const nombreMensaje = document.getElementById("nombre_mensaje");
 
@@ -33,7 +28,7 @@ function validarCorreo() {
     if (letras_correo === "") {
         correoMensaje.textContent = "Por favor, ingrese su correo.";
         input_correo.style.backgroundColor = "red";
-    } else if (!letras_correo.includes("@") || letras_correo.length < 10) {
+    }else if (!letras_correo.includes("@") || letras_correo.length < 10 || !letras_correo.includes(".com")){
         correoMensaje.textContent = "Ingrese un correo válido.";
         input_correo.style.backgroundColor = "red";
     } else {
@@ -62,28 +57,85 @@ input_nombre.addEventListener("input", validarNombre);
 input_correo.addEventListener("input", validarCorreo);
 input_contraseña.addEventListener("input", validarContraseña);
 
-const formulario = document.getElementById("formulario");
+var boton_inicio = document.getElementById("boton_inicio");
 
-formulario.addEventListener("submit", function(event) {
+boton_inicio.addEventListener("click", function() {
     let esValido = true;
 
     if (input_nombre.value.trim() === "" || input_nombre.value.trim().length < 6) {
         esValido = false;
     }
-    if (input_correo.value.trim() === "" || !input_correo.value.includes("@") || input_correo.value.trim().length < 10) {
+    if (input_correo.value.trim() === "" || !input_correo.value.includes("@") || input_correo.value.trim().length < 10 || input_correo.value.includes(".com")) {
         esValido = false;
     }
     if (input_contraseña.value.trim() === "" || input_contraseña.value.trim().length < 6) {
         esValido = false;
     }
     if (!esValido) {
-        event.preventDefault();
         alert("Por favor, complete correctamente todos los campos.");
     }
-    if (esvalido){
-        var nombre = document.getElementById("input_nombre");
-        var correo = document.getElementById("input_correo");
-        var contraseña = document.getElementById("input_contraseña");
+    if (esValido === true) {
+        const nombre = input_nombre.value.trim();
+        const correo = input_correo.value.trim();
+        const contraseña = input_contraseña.value.trim();
+        let resultado = validarDatos(nombre, correo, contraseña);
+        if (resultado === true) {
+            alert("Inicio de sesión exitoso.");
+        } else {
+            alert("Datos incorrectos. Por favor, verifique su nombre, correo y contraseña.");
+        }
+    }
+});
 
+var datos = [];
+
+function validarDatos(nombre, correo, contraseña) {
+    for (let i = 0; i < datos.length; i++) {
+        if (datos[i][0] === nombre && datos[i][1] === correo && datos[i][2] === contraseña) {
+            return true;  
+        }
+    }
+    return false;  
+}
+
+class User { 
+    constructor(nombre, correo, contraseña) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contraseña = contraseña;
+    }
+
+    añadirInfo() {
+        datos.push([this.nombre, this.correo, this.contraseña]);
+    }
+}
+
+const boton = document.getElementById("boton_user");
+
+boton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const contraseña = document.getElementById("contraseña").value;
+
+    let esValido = true;
+
+    if (nombre.trim() === "" || correo.trim() === "" || contraseña.trim() === "") {
+        esValido = false;
+    }
+
+    if (!esValido) {
+        alert("Por favor, complete correctamente todos los campos.");
+    } else {
+        const nuevoUsuario = new User(nombre, correo, contraseña);
+        nuevoUsuario.añadirInfo();
+        console.log(datos);
+        alert("Usuario añadido correctamente.");
+        
+        // Limpiar los campos
+        document.getElementById("nombre").value = "";
+        document.getElementById("correo").value = "";
+        document.getElementById("contraseña").value = "";
     }
 });

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión</title>
-    <script src="funcionesEstables.js" defer></script>
+    <title>Registro de Usuario</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="funcionesEstables.js"></script>
 </head>
 <body>
     <div class="contenedorPrincipal">
@@ -13,18 +13,18 @@
             <input type="text" placeholder="Ingrese su nombre" id="nombre" required>
             <div id="nombre_mensaje" class="mensaje-error"></div>
         </div>
+        
         <div>
             <input type="email" placeholder="Ingrese su correo" id="correo" required>
             <div id="correo_mensaje" class="mensaje-error"></div>
         </div>
+        
         <div>
             <input type="password" placeholder="Ingrese su contraseña" id="contraseña" required>
             <div id="contra_mensaje" class="mensaje-error"></div>
         </div>
-        <button id="boton_inicio">Enviar</button>
-        <div>
-            ¿no está registrado? <a href="registroUser.html">registrese aquí</a>
-        </div>
+        
+        <button id="boton_user">Enviar</button>
     </div>
 </body>
 </html>
