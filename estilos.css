@@ -1,0 +1,101 @@
+/* pa todo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #09ff008c;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+/* underline pa cuando se pasen sobre el, salga subrayado :v */
+a:hover {
+    text-decoration: underline;
+}
+
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.5s;
+}
+
+input:focus {
+    border-color: #00ff2a;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #23caa6;
+}
+/* cuando el boton se presiona da este coor azul xd*/
+button:active {
+    background-color: #23fad6;
+}
+
+.contenedor p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+.contenedor a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.contenedor a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para links en los formularios */
+.contenedor div p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 15px;
+}
