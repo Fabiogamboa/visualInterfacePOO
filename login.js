@@ -14,7 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // de nuevo lo mismo, si usuario es true se ejecuta, y si no, pues no :v
     if (usuario) {
         alert("Bienvenido, " + usuario.nombre);
-        window.location.href = ".juegos/ppt.html";
+        window.location.href = "juegos/ppt.html";
     } else {
         alert("Nombre o contraseña incorrectos. Por favor, crea una cuenta.");
     }
