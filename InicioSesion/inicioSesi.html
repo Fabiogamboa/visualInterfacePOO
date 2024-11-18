@@ -6,24 +6,28 @@
     <title>Inicio de sesión</title>
     <script src="funcionesEstables.js" defer></script>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="https://i.pinimg.com/736x/6d/16/30/6d163043bcb0aa3fc687f617a1e14086.jpg" type="image/png">
 </head>
 <body>
     <div class="contenedorPrincipal">
         <div>
+            <label for="nombre">Nombre:</label>
             <input type="text" placeholder="Ingrese su nombre" id="nombre" required>
             <div id="nombre_mensaje" class="mensaje-error"></div>
         </div>
         <div>
+            <label for="correo">Correo:</label>
             <input type="email" placeholder="Ingrese su correo" id="correo" required>
             <div id="correo_mensaje" class="mensaje-error"></div>
         </div>
         <div>
+            <label for="contraseña">Contraseña:</label>
             <input type="password" placeholder="Ingrese su contraseña" id="contraseña" required>
             <div id="contra_mensaje" class="mensaje-error"></div>
         </div>
         <button id="boton_inicio">Enviar</button>
         <div>
-            ¿no está registrado? <a href="registroUser.html">registrese aquí</a>
+            ¿No está registrado? <a href="registroUser.html">Regístrese aquí</a>
         </div>
     </div>
 </body>

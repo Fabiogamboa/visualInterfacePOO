@@ -1,12 +1,11 @@
-var datos = [];
+var datos = new Map();
 
 function validarDatos(nombre, correo, contraseña) {
-    for (let i = 0; i < datos.length; i++) {
-        if (datos[i][0] === nombre && datos[i][1] === correo && datos[i][2] === contraseña) {
-            return true;  
-        }
+    const usuario = datos.get(correo);
+    if (usuario && usuario.nombre === nombre && usuario.contraseña === contraseña) {
+        return true;
     }
-    return false;  
+    return false;
 }
 
 class User { 
@@ -17,15 +16,11 @@ class User {
     }
 
     añadirInfo() {
-        datos.push([this.nombre, this.correo, this.contraseña]);
+        datos.set(this.correo, { nombre: this.nombre, contraseña: this.contraseña });
     }
 }
 
-const boton = document.getElementById("boton_user");
-
-boton.addEventListener("onclick", function(event) {
-    event.preventDefault(); // Prevenir el envío del formulario
-
+function registroUser() {
     const nombre = document.getElementById("nombre").value;
     const correo = document.getElementById("correo").value;
     const contraseña = document.getElementById("contraseña").value;
@@ -49,4 +44,4 @@ boton.addEventListener("onclick", function(event) {
         document.getElementById("correo").value = "";
         document.getElementById("contraseña").value = "";
     }
-});
+}
